@@ -9,8 +9,13 @@ function App() {
 
   useEffect(() => {
     const fetchHello = async () => {
-    const {data} = await axios.get("http://localhost:3000/api/");
-    setMessage(data.message);
+    try {
+      const {data} = await axios.get("http://localhost:3000/api/");
+      setMessage(data.message);
+    } catch (error) {
+      console.error(error)
+    }
+    
   };
     fetchHello();
    
