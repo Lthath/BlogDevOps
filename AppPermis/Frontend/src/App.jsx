@@ -1,31 +1,16 @@
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
-import axios from "axios";
+import axios from "axios"
+import List from "../components/List"
+import AddForm from "../components/AddForm"
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    const fetchHello = async () => {
-    try {
-      const {data} = await axios.get("http://localhost:3000/api/");
-      setMessage(data.message);
-    } catch (error) {
-      console.error(error)
-    }
-    
-  };
-    fetchHello();
-   
-});
-
-    
-  return <div className='App'>{message}</div>
-
-
-
+  return <div className='App'>
+    <h1>POST</h1>
+    <AddForm />
+    <List />
+  </div>
 
 }
 export default App
