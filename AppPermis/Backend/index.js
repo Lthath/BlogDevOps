@@ -2,11 +2,15 @@
 const express = require("express");
 const app = express();
 
+// dotenv
+
+require("dotenv").config({path: "./.env"});
+
 // cors
 const cors = require("cors");
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin:  process.env.URL_WEB,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     optionsSuccessStatus: 204,
     credentials: true,
@@ -17,9 +21,6 @@ const corsOptions = {
   
   app.use(cors(corsOptions));
 
-// dotenv
-
-require("dotenv").config({path: "./.env"});
 
 // db connect
 
